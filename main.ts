@@ -1,1 +1,18 @@
-const{mkdirSync:K,readFileSync:R,readdirSync:L,writeFileSync:W}=require("fs");let o=Buffer.alloc(1e5),ol;const V=(p,q,D=new Int32Array(256),C=[],M=[],F=[_=>a+b,_=>a-b,Math.imul,_=>a/b,_=>a%b,_=>A/B,_=>A%B,,_=>a&b,_=>a|b,_=>a^b,,_=>a<<b,_=>a>>b,_=>a>>>b,,_=>a==b,_=>a<b,_=>A<B],sp=0,cp=0,ip=ol=0,pc=0,st=1e6,a,b,A,B,c,t,k,m,x)=>{for(;;){c=p[pc],t="0Dt15263        666>>>>56665666 666             PQQP0           52              1141".charCodeAt(c),m=++pc,k=pc+=(t>>4)-3;if(x=!st--?10:t>47?(m<1|k>p.length?9:t%4>sp?2:t&4&&sp>255?3:t&8&&!D[sp-1]?4:c==51&&cp>63?7:c==52&&!cp?8:c?c>82?D[--sp]|256:0:256):5)return x&255;if(c<53)c<8?c<3?D[sp++]=p.readIntLE(m,k-m):c<4?sp--:c&1?(a=sp-(c>>1),b=D[a],D.copyWithin(a,a+1),D[sp-1]=b):D[sp++]=D[sp-c/2]:c<35?t&1?D[sp-1]=~D[sp-1]+(c<27):(b=D[--sp],a=D[sp-1],A=a>>>0,B=b>>>0,D[sp-1]=F[c-16](a,b)):c<51?c>48&&!D[--sp]==c>49?0:pc+=p.readInt16LE(m):c<52?(C[cp++]=k,pc=p[m]|p[m+1]<<8):pc=C[--cp];else if(c<66){a=D[sp-1];if(a>>8)return 6;c&1?(M[a]=D[sp-2],sp-=2):D[sp-1]=M[a]}else if(c>81)D[sp++]=q[ip++]??-1;else{a=D[--sp],b=c<81?""+a:0;if(ol+(b.length||1)>65536)return 11;b?ol+=o.write(b,ol):o[ol++]=a}}};const{MAKEFUN_INPUT_DIR:I="/input",MAKEFUN_OUTPUT_DIR:O="/output"}=process.env;L(I).map(d=>{let j=I+"/"+d,P=O+"/"+d,x=0;try{x=V(R(j+"/program.bin"),R(j+"/input.bin"))}catch{ol=0}K(P,{recursive:!0});W(P+"/stdout.bin",o.slice(0,ol));W(P+"/exit.txt",x+"")})
+let{mkdirSync:K,readFileSync:R,readdirSync:L,writeFileSync:W}=require("fs"),
+o=Buffer.alloc(1e5),ol,V=(p,q,D=new Int32Array(256),C=[],M=[],
+F=[_=>a+b,_=>a-b,Math.imul,_=>a/b,_=>a%b,_=>A/B,_=>A%B,,
+_=>a&b,_=>a|b,_=>a^b,,_=>a<<b,_=>a>>b,_=>a>>>b,,_=>a==b,_=>a<b,_=>A<B],
+sp=0,cp=0,ip=ol=0,pc=0,st=1e6,a,b,A,B,c,t,k,m,x)=>{for(;;){c=p[pc],
+t="0Dt15263        666>>>>56665666 666             PQQP0           52              1141".charCodeAt(c),
+m=++pc,k=pc+=(t>>4)-3;if(x=!st--?10:t>47?(m<1|k>p.length?9:t%4>sp?2:t&4&&sp>255?3:
+t&8&&!D[sp-1]?4:c==51&&cp>63?7:c==52&&!cp?8:
+c?c>82?D[--sp]|256:0:256):5)return x&255;if(c<53)c<8?c<3?D[sp++]=p.readIntLE(m,k-m):c<4?sp--:
+c&1?(a=sp-(c>>1),b=D[a],D.copyWithin(a,a+1),D[sp-1]=b):D[sp++]=D[sp-c/2]:
+c<35?t&1?D[sp-1]=~D[sp-1]+(c<27):(b=D[--sp],a=D[sp-1],A=a>>>0,B=b>>>0,D[sp-1]=F[c-16](a,b)):
+c<51?c>48&&!D[--sp]==c>49?0:pc+=p.readInt16LE(m):
+c<52?(C[cp++]=k,pc=p[m]|p[m+1]<<8):pc=C[--cp];else if(c<66){a=D[sp-1];if(a>>8)return 6;
+c&1?(M[a]=D[sp-2],sp-=2):D[sp-1]=M[a]}else if(c>81)D[sp++]=q[ip++]??-1;
+else{a=D[--sp],b=c<81?""+a:0;if(ol+(b.length||1)>65536)return 11;
+b?ol+=o.write(b,ol):o[ol++]=a}}},{MAKEFUN_INPUT_DIR:I="/input",MAKEFUN_OUTPUT_DIR:O="/output"}=process.env;
+L(I).map(d=>{let j=I+"/"+d,P=O+"/"+d,x=0;try{x=V(R(j+"/program.bin"),R(j+"/input.bin"))}catch{ol=0}
+K(P,{recursive:!0});W(P+"/stdout.bin",o.slice(0,ol));W(P+"/exit.txt",x+"")})
